@@ -12,7 +12,7 @@ interface SidebarLinkProps {
 const SidebarLink: React.FC<SidebarLinkProps> = ({ title, icon, path }) => {
     const currentPath = usePathname(); 
     return (
-        <Link href={path} className={`${currentPath === path ? 'text-primary'  : ''} flex capitalize px-4 items-center gap-3 font-medium py-4  rounded-lg`}>
+        <Link href={path} className={`${currentPath === path ? 'text-primary  bg-blue-100 font-semibold'  : ''} flex capitalize px-4 items-center gap-2 font-medium py-2 rounded-md`}>
             {icon}
             {title}
         </Link>
