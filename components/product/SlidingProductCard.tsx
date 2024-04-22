@@ -12,15 +12,18 @@ interface SlidingProductCardProps {
 const show = {
     display: 'block',
     transition: {
-      type: "tween",
-      duration: 0.5, 
+      type: "ease-in-out",
+      duration: 1,
+    
     }
 };
 
 const hide = {
-    transitionEnd: {
-        display: "none"
-      }
+    display: "none",
+    transition: {
+        type: "ease-in-out",
+        duration: 1,
+    }
 };
 
 const SlidingProductCard: React.FC<SlidingProductCardProps> = ({ children, title }) => {
@@ -34,7 +37,7 @@ const SlidingProductCard: React.FC<SlidingProductCardProps> = ({ children, title
                 <p className='font-semibold'>{title}</p>
                 <span className={`transform ${isOpen ? 'rotate-45' : 'rotate-0'} text-3xl transition-transform duration-500`}>&#43;</span>
             </div>
-            <motion.div initial={hide} animate={isOpen ? show : hide} className='py-4' >
+            <motion.div initial={{display: 'none'}} animate={isOpen ? show : hide} className='py-4' >
                 {children}
             </motion.div>
         </motion.div>
