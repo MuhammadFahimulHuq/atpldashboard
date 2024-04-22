@@ -1,24 +1,35 @@
 'use client'
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 
 import productData from '@/util/product'
 import {  Layers } from 'lucide-react';
-import Product from '@/interfaces/product.interface';
+import {Product }from '@/interfaces/product.interface';
 import Loading from './loading';
 
 import AddProduct from '@/components/product/AddProduct';
 import UpdateProduct from '@/components/product/UpdateProduct';
 import ProductDetail from '@/components/product/ProductDetail';
 import usePermission from '@/hooks/hasPermission';
+import { useRouter } from 'next/navigation';
 
 const ProductPage = () => {
 
 
     const {products} = productData;
     const hasPermission = usePermission()
+    const router = useRouter()
+
+    
+    useEffect(() => {
+     
+      if (hasPermission('view_product') !== null) {
+        router.push('/');
+      }
+    }, []);
 
   return (
-    <div className='h-screen w-full bg-slate-100 rounded-l-3xl mt-4'>
+
+<div className='h-screen w-full bg-slate-100 rounded-l-3xl mt-4'>
 
 <div className='p-4'>
   <div className='flex justify-between items-center'>
@@ -29,7 +40,7 @@ const ProductPage = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-5">
     <Suspense fallback={<Loading />}>
-    {products.map((product: Product) => (
+    {products.map((product) => (
   <div className="h-full border-2 relative border-gray-200 border-opacity-60 rounded-xl bg-white overflow-hidden" key={product.product_id}>
   <img className="lg:h-48 md:h-36 w-full object-cover object-center" src={product.images[0]} alt="blog" />
   <div className='absolute top-5 right-5'>

@@ -25,17 +25,12 @@ export default function Home() {
   const router = useRouter()
 
   const handleLogin = () => {
-    // Find user by email
     const user = User.User.find(u => u.email === email);
-
-
     if (!user) {
       setError('Invalid email');
       return;
     }
-
-    // Compare passwords using bcrypt
-    bcrypt.compare(password, user.password, (err, result) => {
+    bcrypt.compare(password, user.password, (err:Error | null, result:boolean) => {
       if (err || !result) {
         setError('Invalid password');
       } else {
@@ -66,8 +61,8 @@ export default function Home() {
 
   </CardContent>
   <CardFooter className="flex flex-col">
-    <p className="text-sm">admin: admin@example.com | password: 123456 </p>
-    <p className="text-sm">user: user@example.com| password: 12345 </p>
+    <p className="text-sm">admin: admin@example.com | password: 12345 </p>
+    <p className="text-sm">user: user@example.com | password: 12345 </p>
   </CardFooter>
 </Card>
       </div>

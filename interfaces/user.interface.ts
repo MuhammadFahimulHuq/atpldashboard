@@ -6,6 +6,7 @@ export interface User {
     fullName: string;
     profilePicture: string;
     registeredAt: Date;
+    status: string;
     role: {
         name: string;
         permissions: string[];

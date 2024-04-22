@@ -4,11 +4,14 @@ import { Label } from '@radix-ui/react-label'
 import userData from '@/util/user'
 import React, { useEffect, useState } from 'react'
 import { User } from '@/interfaces/user.interface'
+import usePermission from '@/hooks/hasPermission'
+import { useRouter } from 'next/navigation'
 
 
 const ProfilePage = () => {
 
-
+const hasPermission = usePermission()
+const router = useRouter()
   const [user, setUser] = useState<User | null>(null);
 
 const findUser = () =>{
@@ -22,6 +25,13 @@ if(foundUser){
 useEffect(()=>{
 findUser()
 },[])
+
+
+useEffect(() => {
+  if (hasPermission('view_profile') !== null) {
+    router.push('/');
+  }
+}, []);
 
   return (
     <div className='h-screen w-full bg-slate-100 rounded-l-3xl mt-4'>

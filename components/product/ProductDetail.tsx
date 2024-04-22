@@ -26,7 +26,9 @@ import productData from '@/util/product'
 
 
 const ProductDetail: React.FC<{ id: string }> = ({id}) => {
-  const product = productData.products.find((product: Product) => product.product_id === id);
+
+  const {products} = productData
+    const product = products.find((product) => product.product_id === id);
 
 
   return (
