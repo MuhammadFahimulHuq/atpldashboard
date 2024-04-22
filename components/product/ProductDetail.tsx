@@ -21,7 +21,7 @@ import StarRating from './StarRating'
 import { Badge } from "@/components/ui/badge"
 import { Plus, X } from 'lucide-react'
 import SlidingProductCard from './SlidingProductCard'
-import Product from '@/interfaces/product.interface'
+import { Product} from '@/interfaces/product.interface';
 import productData from '@/util/product'
 
 

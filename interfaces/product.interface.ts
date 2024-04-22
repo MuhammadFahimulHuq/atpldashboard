@@ -1,4 +1,4 @@
-interface Product {
+export interface Product {
   product_id: string;
   name: string;
   description: string;
@@ -50,6 +50,3 @@ interface Product {
   manufacturer_image: string;
 }
 
-export interface ProductsData {
-  products: Product[];
-}
