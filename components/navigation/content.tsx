@@ -10,6 +10,7 @@ const NavigationContent = () => {
 
   const [userName,setUserName] = useState<string>('')
 
+  const hasPermission = usePermission()
 
   useEffect(()=>{
     const userName = localStorage.getItem('username');
@@ -26,10 +27,13 @@ const NavigationContent = () => {
         </div>
         <div>
         <div className='bg-slate-100 h-[600px] rounded-r-2xl px-2 py-4 space-y-3'>
-        {usePermission('view_dashboard') && <SidebarLink title={'dashboard'} icon={<LayoutDashboard className='w-5'/>} path={'/dashboard'}/>}
-        {usePermission('view_product') && <SidebarLink title={'products'} icon={<ShoppingCart className='w-5'/>} path={'/product'}/>}
-       {usePermission('view_profile') && <SidebarLink title={'profile'} icon={<CircleUser className='w-5'/>} path={'/profile'}/> } 
-       {usePermission('view_userlist') && <SidebarLink title={'users-list'} icon={<Users className='w-5'/>} path={'/users'}/>} 
+        {hasPermission('view_dashboard') && <SidebarLink title={'dashboard'} icon={<LayoutDashboard className='w-5'/>} path={'/dashboard'}/>}
+        {hasPermission('view_product') && <SidebarLink title={'products'} icon={<ShoppingCart className='w-5'/>} path={'/product'}/>}
+       {hasPermission('view_profile') && <SidebarLink title={'profile'} icon={<CircleUser className='w-5'/>} path={'/profile'}/> } 
+       {hasPermission('view_userlist') && <SidebarLink title={'users-list'} icon={<Users className='w-5'/>} path={'/users'}/>} 
+      </div>
+      <div>
+
       </div>
         </div>
        

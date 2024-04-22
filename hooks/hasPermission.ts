@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import userData from '@/util/user';
 import { User } from '@/interfaces/user.interface';
 
-const usePermission = (permission: string): boolean => {
+const usePermission = () => {
   const [user, setUser] = useState<User | null>(null);
-  const [hasPermission, setHasPermission] = useState<boolean>(false);
+
 
   useEffect(() => {
     const username = localStorage.getItem('username');
@@ -15,13 +15,9 @@ const usePermission = (permission: string): boolean => {
     }
   }, []);
 
-  useEffect(() => {
-    if (user && user.role && user.role.permissions.includes(permission)) {
-      setHasPermission(true);
-    } else {
-      setHasPermission(false);
-    }
-  }, [user, permission]);
+const hasPermission = (permission:string) =>{
+   return user && user.role && user.role.permissions.includes(permission)
+}
 
   return hasPermission;
 };

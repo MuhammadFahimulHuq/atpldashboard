@@ -15,7 +15,7 @@ const ProductPage = () => {
 
 
     const {products} = productData;
-
+    const hasPermission = usePermission()
 
   return (
     <div className='h-screen w-full bg-slate-100 rounded-l-3xl mt-4'>
@@ -23,7 +23,7 @@ const ProductPage = () => {
 <div className='p-4'>
   <div className='flex justify-between items-center'>
   <h1 className='text-2xl text-gray-600 font-bold mb-4'>Product List</h1>
-   {usePermission('add_product') && <AddProduct />}
+   {hasPermission('add_product') && <AddProduct />}
 
   </div>
 
@@ -33,7 +33,7 @@ const ProductPage = () => {
   <div className="h-full border-2 relative border-gray-200 border-opacity-60 rounded-xl bg-white overflow-hidden" key={product.product_id}>
   <img className="lg:h-48 md:h-36 w-full object-cover object-center" src={product.images[0]} alt="blog" />
   <div className='absolute top-5 right-5'>
-  {usePermission('update_product') && <UpdateProduct />}
+  {hasPermission('update_product') && <UpdateProduct />}
   </div>
 
   <div className="p-6">
