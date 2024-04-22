@@ -13,7 +13,8 @@ import UserData from "@/util/user";
 import { User } from "@/interfaces/user.interface";
 import { Badge } from "@/components/ui/badge";
 import usePermission from "@/hooks/hasPermission";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+
 const UserListPage = () => {
   const { User: UsersList } = UserData;
   const hasPermission = usePermission();
