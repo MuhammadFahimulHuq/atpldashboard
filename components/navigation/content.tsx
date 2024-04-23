@@ -51,7 +51,7 @@ const NavigationContent = () => {
           )}
           {hasPermission("view_userlist") && (
             <SidebarLink
-              title={"users-list"}
+              title={"users list"}
               icon={<Users className="w-5" />}
               path={"/users"}
             />

@@ -57,7 +57,7 @@ const ProductDetail: React.FC<{ id: string }> = ({ id }) => {
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem>
-                  <BreadcrumbLink href="/">Product</BreadcrumbLink>
+                  <BreadcrumbLink href="/product">Product</BreadcrumbLink>
                 </BreadcrumbItem>
 
                 <BreadcrumbSeparator />
@@ -68,7 +68,7 @@ const ProductDetail: React.FC<{ id: string }> = ({ id }) => {
             </Breadcrumb>
           </DrawerTitle>
         </DrawerHeader>
-        <ScrollArea className="h-[90vh] overflow-auto px-4 ">
+        <ScrollArea className="h-[90vh] overflow-auto px-4 pb-10 ">
           <div className="grid grid-cols-1 space-x-0 md:grid md:grid-cols-2 md:space-x-5 ">
             <div className="grid grid-cols-2 gap-5  max-h-[620px]">
               <img

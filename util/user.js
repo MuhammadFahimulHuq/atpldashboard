@@ -27,7 +27,7 @@ const User = [{
     status: 'Active',
     role: {
       name: "admin",
-      permissions: ["view_product","edit_product","add_product","update_product","delete_product","view_userlist"]
+      permissions: ["view_product","view_profile","edit_product","add_product","update_product","delete_product","view_userlist"]
     }
 
   }]
